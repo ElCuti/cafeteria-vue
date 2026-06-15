@@ -1,5 +1,6 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
+import btncoffee from './components/btncoffee.vue';
 </script>
 
 <template>
@@ -15,7 +16,9 @@ import { RouterLink, RouterView } from 'vue-router'
       
       </div>
       <div class="p-2">
-      <button class="btn btn-cafe me-md-2 fuenteEncabezado" type="button">Order Now</button>
+      
+      <btncoffee color="Primary" size="md">Order now</btncoffee>
+       <!-- <button class="btn btn-cafe me-md-2 fuenteEncabezado" type="button">Order Now</button> -->
       </div>
     </nav>
   </header>
@@ -40,19 +43,6 @@ import { RouterLink, RouterView } from 'vue-router'
 .fuenteTexto {
   font-family: "DM Sans", serif;
 }
-.btn-cafe{
-  --bs-btn-color: #ffffff;
-  --bs-btn-bg: #3e2723; 
-  --bs-btn-border-color: #6f4e37;
-
-  --bs-btn-hover-color: #ffffff;
-  --bs-btn-hover-bg: #533928; 
-  --bs-btn-hover-border-color: #533928;
-
-  --bs-btn-active-bg: #402b1e;
-  --bs-btn-active-border-color: #402b1e;
-}
-
 .navText{
   color: #2c1e16; 
  
