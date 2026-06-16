@@ -38,7 +38,7 @@ import btncoffee from "./components/btncoffee.vue";
         <div class="col-md-4 mb-4 mb-md-0">
           <h6 class="text-uppercase fw-bold mb-3 textFooter">Visítanos</h6>
           <p class="mb-1">Calle del Código 404, Madrid</p>
-          <p class="mb-1">Lunes a Sábado</p>
+          <p class="mb-1 pt-3">Lunes a Sábado</p>
           <p class="mb-0">08:00 - 19:00</p>
         </div>
 
