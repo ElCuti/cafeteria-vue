@@ -6,7 +6,9 @@ import btncoffee from "../components/btncoffee.vue";
   <div class="container">
     <div class="row text-start pt-5">
       <div class="col-12 col-sm-6 mb-4">
-        <h1>El mejor café de especialidad de la ciudad.</h1>
+        <h1>
+          <b>El mejor café de especialidad de la ciudad.</b>
+        </h1>
         <p>
           Tostamos nuestros granos a diario para ofrecerte una experiencia única
           en cada taza. Un ambiente relajado para disfrutar del ritual del café
@@ -26,12 +28,12 @@ import btncoffee from "../components/btncoffee.vue";
         <div class="tarjeta card mb-3 rounded-4">
           <div class="row g-0">
             <div class="col-4">
-              <i class="icono bi bi-cup-hot-fill"></i>
+              <i class="colorCafe icono bi bi-cup-hot-fill"></i>
             </div>
             <div class="col-8">
               <div class="card-body">
                 <h5 class="card-title textoTitTarjeta">TUESTE</h5>
-                <p class="card-text textoDescTarjeta">
+                <p class="card-text colorCafe">
                   <b>Diario & Artesanal</b>
                 </p>
               </div>
@@ -43,7 +45,12 @@ import btncoffee from "../components/btncoffee.vue";
   </div>
 </template>
 
-<style>
+<style scoped>
+h1 {
+  font-family: "Libre Caslon Text", serif;
+  padding-top: 30%;
+}
+
 .tarjeta {
   max-width: 260px;
   background-color: #f1e9d7;
@@ -69,9 +76,15 @@ import btncoffee from "../components/btncoffee.vue";
   color: #919090;
   font-size: 14px;
 }
-.textoDescTarjeta {
+.colorCafe {
   color: #3e2723;
 }
+@media (width <= 992px) {
+  h1 {
+    padding-top: 0px;
+  }
+}
+
 @media (width <= 576px) {
   .tarjeta {
     max-width: 230px;
