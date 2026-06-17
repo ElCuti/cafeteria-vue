@@ -30,8 +30,10 @@ import btncoffee from "../components/btncoffee.vue";
             </div>
             <div class="col-8">
               <div class="card-body">
-                <h5 class="card-title">Tueste</h5>
-                <p class="card-text">Diario & Artesanal</p>
+                <h5 class="card-title textoTitTarjeta">TUESTE</h5>
+                <p class="card-text textoDescTarjeta">
+                  <b>Diario & Artesanal</b>
+                </p>
               </div>
             </div>
           </div>
@@ -62,6 +64,13 @@ import btncoffee from "../components/btncoffee.vue";
     --bs-body-font-size: 40px;
     font-size: var(--bs-body-font-size);
   }
+}
+.textoTitTarjeta {
+  color: #919090;
+  font-size: 14px;
+}
+.textoDescTarjeta {
+  color: #3e2723;
 }
 @media (width <= 576px) {
   .tarjeta {
