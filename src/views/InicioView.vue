@@ -5,7 +5,7 @@ import btncoffee from "../components/btncoffee.vue";
 <template>
   <div class="container">
     <div class="row text-start pt-5">
-      <div class="col">
+      <div class="col-12 col-sm-6 mb-4">
         <h1>El mejor café de especialidad de la ciudad.</h1>
         <p>
           Tostamos nuestros granos a diario para ofrecerte una experiencia única
@@ -15,15 +15,68 @@ import btncoffee from "../components/btncoffee.vue";
           >Ver nuestra carta <i class="bi bi-arrow-down"
         /></btncoffee>
       </div>
-      <div class="col">
-        <div class="w-75 ratio ratio-1x1">
+      <div class="col imagenColumn">
+        <div class="w-100 ratio ratio-1x1">
           <img
             src="../../public/fotoInicio.jpg"
             class="object-fit-cover rounded"
             alt="Imagen café"
           />
         </div>
+        <div class="tarjeta card mb-3 rounded-4">
+          <div class="row g-0">
+            <div class="col-4">
+              <i class="icono bi bi-cup-hot-fill"></i>
+            </div>
+            <div class="col-8">
+              <div class="card-body">
+                <h5 class="card-title">Tueste</h5>
+                <p class="card-text">Diario & Artesanal</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </template>
+
+<style>
+.tarjeta {
+  max-width: 260px;
+  background-color: #f1e9d7;
+  position: relative;
+  bottom: 30px;
+  left: -30px;
+  flex-wrap: nowrap;
+
+  .row {
+    flex-wrap: nowrap;
+  }
+
+  .icono {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    --bs-body-font-size: 40px;
+    font-size: var(--bs-body-font-size);
+  }
+}
+@media (width <= 576px) {
+  .tarjeta {
+    max-width: 230px;
+    font-size: 16px;
+    bottom: 70px;
+    left: -5px;
+
+    .row {
+      flex-wrap: nowrap;
+    }
+
+    .icono {
+      --bs-body-font-size: 25px;
+    }
+  }
+}
+</style>
