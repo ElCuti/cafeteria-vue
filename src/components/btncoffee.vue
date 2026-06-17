@@ -1,9 +1,15 @@
 <script setup>
+import { useRouter } from "vue-router";
 import { computed } from "vue";
+
+const router = useRouter();
+
 const props = defineProps({
   size: String,
   color: String,
+  path: String,
 });
+
 const color = computed(() => {
   if (props.color === "Primary") {
     return "primaryColor";
@@ -13,6 +19,7 @@ const color = computed(() => {
     return "";
   }
 });
+
 const size = computed(() => {
   if (props.size === "lg") {
     return "btn-lg";
@@ -24,9 +31,19 @@ const size = computed(() => {
     return "btn-md";
   }
 });
+const emit = defineEmits(["response"]);
+function execute(e) {
+  if (props.path) {
+    router.push(props.path);
+  } else {
+    emit("click", e);
+  }
+}
 </script>
 <template>
-  <button class="btn" :class="color + ' ' + size"><slot /></button>
+  <button @click="execute" class="btn" :class="color + ' ' + size">
+    <slot />
+  </button>
 </template>
 <style>
 .primaryColor {

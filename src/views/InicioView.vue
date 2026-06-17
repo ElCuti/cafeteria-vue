@@ -11,10 +11,9 @@ import btncoffee from "../components/btncoffee.vue";
           Tostamos nuestros granos a diario para ofrecerte una experiencia única
           en cada taza. Un ambiente relajado para disfrutar del ritual del café
         </p>
-        <btncoffee color="Primary" size="lg"
+        <btncoffee path="/carta" color="Primary" size="lg"
           >Ver nuestra carta <i class="bi bi-arrow-down"
         /></btncoffee>
-        <!-- TODO: Modificar el boton para recibir sources -->
       </div>
       <div class="col">
         <div class="w-75 ratio ratio-1x1">
