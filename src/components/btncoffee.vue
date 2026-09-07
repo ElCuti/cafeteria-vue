@@ -31,7 +31,7 @@ const size = computed(() => {
     return "btn-md";
   }
 });
-const emit = defineEmits(["response"]);
+const emit = defineEmits(["click"]);
 function execute(e) {
   if (props.path) {
     router.push(props.path);
