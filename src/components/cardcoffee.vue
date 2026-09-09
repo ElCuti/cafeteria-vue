@@ -15,16 +15,14 @@ const props = defineProps({
   },
   ingredients: Array,
   price: Number,
-  amount: {
-    type: Number,
-    default: 0,
-  },
 });
 
-const amount = ref(props.amount ?? 0);
+const amount = ref(0);
 
 function aumentar() {
-  amount.value++;
+  if (amount.value < 10) {
+    amount.value++;
+  }
 }
 
 function disminuir() {

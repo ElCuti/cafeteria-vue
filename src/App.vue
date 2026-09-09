@@ -16,7 +16,9 @@ import btncoffee from "./components/btncoffee.vue";
           <RouterLink to="/contacto" class="p-2 navText">Contacto</RouterLink>
         </div>
         <div class="p-2">
-          <btncoffee color="Primary" size="md">Order now</btncoffee>
+          <RouterLink to="/carrito">
+            <btncoffee color="Primary" size="lg">0 <i class="bi bi-cart"></i></btncoffee
+          ></RouterLink>
         </div>
       </nav>
     </header>
@@ -31,8 +33,7 @@ import btncoffee from "./components/btncoffee.vue";
           <div class="col-md-4 mb-4 mb-md-0">
             <h4 class="fuenteEncabezado fw-bold mb-3">Slow Roast</h4>
             <p>
-              Artesanía en cada taza. Un espacio para detener el tiempo y
-              disfrutar del buen café.
+              Artesanía en cada taza. Un espacio para detener el tiempo y disfrutar del buen café.
             </p>
           </div>
 
