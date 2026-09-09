@@ -1,10 +1,9 @@
 <script setup>
-import { useRouter } from "vue-router";
 import { getIngredientColor } from "@/constants/ingredientColors";
-
-const router = useRouter();
+import { getCoffeePrice } from "@/constants/coffeePrices.js";
 
 const props = defineProps({
+  id: Number,
   image: String,
   title: String,
   description: String,
@@ -13,6 +12,7 @@ const props = defineProps({
     default: false,
   },
   ingredients: Array,
+  price: Number,
 });
 </script>
 <template>
@@ -45,7 +45,7 @@ const props = defineProps({
           >{{ ingredient }}</span
         >
       </div>
-      <h5 class="card-title mb-3 fw-bold">{{ title }}</h5>
+      <h5 class="card-title mb-3 fw-bold">{{ title }} | {{ getCoffeePrice(id) }}€</h5>
       <p class="card-text text-muted mb-4">{{ description }}</p>
     </div>
   </div>
