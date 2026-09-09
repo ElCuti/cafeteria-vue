@@ -1,6 +1,8 @@
 <script setup>
 import { getIngredientColor } from "@/constants/ingredientColors";
 import { getCoffeePrice } from "@/constants/coffeePrices.js";
+import btncoffee from "../components/btncoffee.vue";
+import { ref } from "vue";
 
 const props = defineProps({
   id: Number,
@@ -13,7 +15,27 @@ const props = defineProps({
   },
   ingredients: Array,
   price: Number,
+  amount: {
+    type: Number,
+    default: 0,
+  },
 });
+
+const amount = ref(props.amount ?? 0);
+
+function aumentar() {
+  amount.value++;
+}
+
+function disminuir() {
+  if (amount.value > 0) {
+    amount.value--;
+  }
+}
+
+function add() {
+  amount.value = 0;
+}
 </script>
 <template>
   <div class="card product-card border-0 rounded-4 shadow-lg h-100">
@@ -47,6 +69,18 @@ const props = defineProps({
       </div>
       <h5 class="card-title mb-3 fw-bold">{{ title }} | {{ getCoffeePrice(id) }}€</h5>
       <p class="card-text text-muted mb-4">{{ description }}</p>
+      <div class="d-flex justify-content-end mt-auto">
+        <btncoffee class="rounded-pill" path="" color="Primary" size="lg" @click="disminuir"
+          ><i class="bi bi-dash-lg"></i
+        ></btncoffee>
+        <btncoffee class="rounded-pill" path="" color="Primary" size="lg">{{ amount }}</btncoffee>
+        <btncoffee class="rounded-pill" path="" color="Primary" size="lg" @click="aumentar"
+          ><i class="bi bi-plus-lg"></i
+        ></btncoffee>
+        <btncoffee class="px-5 py-2 rounded-pill" path="" color="Primary" size="lg" @click="add"
+          ><i class="bi bi-basket"></i
+        ></btncoffee>
+      </div>
     </div>
   </div>
 </template>
