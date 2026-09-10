@@ -2,7 +2,7 @@
 import { coffeGet } from "@/api/coffee";
 import { onBeforeMount, ref, computed } from "vue";
 import cardcoffee from "@/components/cardcoffee.vue";
-
+const emit = defineEmits(["add"]);
 const carta = ref([]);
 
 onBeforeMount(async () => {
@@ -19,7 +19,7 @@ const cartaLimpia = computed(() => {
   <div class="container py-5">
     <h1>Carta</h1>
     <div class="row justify-content-center g-4">
-      <div v-for="cafe in cartaLimpia" class="col-md-4 d-flex">
+      <div v-for="cafe in cartaLimpia" :key="cafe.id" class="col-md-4 d-flex">
         <cardcoffee
           :id="cafe.id"
           :image="cafe.image"
@@ -28,6 +28,7 @@ const cartaLimpia = computed(() => {
           :ingredients="cafe.ingredients"
           :is-new="cafe.id == 2"
           :price="cafe.price"
+          @add="() => emit('add')"
         />
       </div>
     </div>

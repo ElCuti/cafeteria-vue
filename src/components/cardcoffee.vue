@@ -3,6 +3,9 @@ import { getIngredientColor } from "@/constants/ingredientColors";
 import { getCoffeePrice } from "@/constants/coffeePrices.js";
 import btncoffee from "../components/btncoffee.vue";
 import { ref } from "vue";
+import { addCart } from "@/api/cart.js";
+
+const emit = defineEmits(["add"]);
 
 const props = defineProps({
   id: Number,
@@ -32,6 +35,12 @@ function disminuir() {
 }
 
 function add() {
+  if (amount.value === 0) {
+    console.warn("Tienes 0 cantidades de ese producto");
+    return;
+  }
+  addCart({ id: props.id, amount: amount.value });
+  emit("add");
   amount.value = 0;
 }
 </script>
@@ -55,6 +64,7 @@ function add() {
       <div class="d-flex justify-content-start align-items-center flex-wrap">
         <span
           v-for="ingredient in ingredients"
+          :key="ingredient"
           class="badge rounded-pill me-2 mb-2 border border-black"
           :style="
             'background-color: ' +
@@ -66,18 +76,22 @@ function add() {
         >
       </div>
       <h5 class="card-title mb-3 fw-bold">{{ title }} | {{ getCoffeePrice(id) }}€</h5>
-      <p class="card-text text-muted mb-4">{{ description }}</p>
+      <p class="card-text text-muted mb-4">
+        {{ description }}
+      </p>
       <div class="d-flex justify-content-end mt-auto">
-        <btncoffee class="rounded-pill" path="" color="Primary" size="lg" @click="disminuir"
-          ><i class="bi bi-dash-lg"></i
-        ></btncoffee>
-        <btncoffee class="rounded-pill" path="" color="Primary" size="lg">{{ amount }}</btncoffee>
-        <btncoffee class="rounded-pill" path="" color="Primary" size="lg" @click="aumentar"
-          ><i class="bi bi-plus-lg"></i
-        ></btncoffee>
-        <btncoffee class="px-5 py-2 rounded-pill" path="" color="Primary" size="lg" @click="add"
-          ><i class="bi bi-basket"></i
-        ></btncoffee>
+        <btncoffee class="rounded-pill" path="" color="Primary" size="lg" @click="disminuir">
+          <i class="bi bi-dash-lg" />
+        </btncoffee>
+        <btncoffee class="rounded-pill" path="" color="Primary" size="lg">
+          {{ amount }}
+        </btncoffee>
+        <btncoffee class="rounded-pill" path="" color="Primary" size="lg" @click="aumentar">
+          <i class="bi bi-plus-lg" />
+        </btncoffee>
+        <btncoffee class="px-5 py-2 rounded-pill" path="" color="Primary" size="lg" @click="add">
+          <i class="bi bi-basket" />
+        </btncoffee>
       </div>
     </div>
   </div>

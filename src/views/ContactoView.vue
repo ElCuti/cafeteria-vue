@@ -45,12 +45,18 @@ const enviarFormulario = () => {
           espacio para un evento o simplemente saludarnos? Escríbenos.
         </p>
         <div>
-          <p v-if="formularioEnviado" class="textForm">
+          <p
+            v-if="formularioEnviado"
+            class="textForm"
+          >
             ¡Formulario enviado! Muchas gracias {{ nombreEnviado }} por enviar
             su formulario, le comunicaremos nuestra respuesta a
             {{ emailEnviado }}
           </p>
-          <p v-else-if="errorFormulario" class="textForm">
+          <p
+            v-else-if="errorFormulario"
+            class="textForm"
+          >
             ¡Error en el formulario! Has dejado un campo sin rellenar, procure
             rellenar todos los parametros
           </p>
@@ -60,35 +66,48 @@ const enviarFormulario = () => {
         <div class="card">
           <div class="card-body">
             <div class="mb-3">
-              <label for="NombreInput" class="form-label">Nombre</label>
+              <label
+                for="NombreInput"
+                class="form-label"
+              >Nombre</label>
               <input
+                id="NombreInput"
                 v-model="nombre"
                 type="text"
                 class="form-control"
-                id="NombreInput"
-              />
+              >
             </div>
             <div class="mb-3">
-              <label for="EmailInput" class="form-label">Email</label>
+              <label
+                for="EmailInput"
+                class="form-label"
+              >Email</label>
               <input
+                id="EmailInput"
                 v-model="email"
                 type="email"
                 class="form-control"
-                id="EmailInput"
-              />
+              >
             </div>
             <div class="mb-3">
-              <label for="MensajeInput" class="form-label">Mensaje</label>
+              <label
+                for="MensajeInput"
+                class="form-label"
+              >Mensaje</label>
               <textarea
+                id="MensajeInput"
                 v-model="mensaje"
                 class="form-control"
-                id="MensajeInput"
                 rows="6"
-              ></textarea>
+              />
             </div>
-            <btncoffee @click="enviarFormulario" color="Primary" size="lg"
-              >Enviar <i class="bi bi-arrow-down"
-            /></btncoffee>
+            <btncoffee
+              color="Primary"
+              size="lg"
+              @click="enviarFormulario"
+            >
+              Enviar <i class="bi bi-arrow-down" />
+            </btncoffee>
           </div>
         </div>
       </div>

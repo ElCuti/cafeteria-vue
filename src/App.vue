@@ -1,6 +1,21 @@
 <script setup>
+import { ref, onMounted, computed } from "vue";
 import { RouterLink, RouterView } from "vue-router";
 import btncoffee from "./components/btncoffee.vue";
+import { getCart } from "@/api/cart.js";
+
+const carrito = ref([]);
+onMounted(() => {
+  initCarrito();
+});
+
+function initCarrito() {
+  carrito.value = getCart();
+}
+
+const cantidad = computed(() => {
+  return carrito.value.reduce((accumulator, currentValue) => accumulator + currentValue.amount, 0);
+});
 </script>
 
 <template>
@@ -11,20 +26,22 @@ import btncoffee from "./components/btncoffee.vue";
           <h3 class="fuenteEncabezado">Slow Roast</h3>
         </div>
         <div class="p-2 flex-center fuenteEncabezado">
-          <RouterLink to="/" class="p-2 navText">Inicio</RouterLink>
-          <RouterLink to="/carta" class="p-2 navText">Menu</RouterLink>
-          <RouterLink to="/contacto" class="p-2 navText">Contacto</RouterLink>
+          <RouterLink to="/" class="p-2 navText"> Inicio </RouterLink>
+          <RouterLink to="/carta" class="p-2 navText"> Menu </RouterLink>
+          <RouterLink to="/contacto" class="p-2 navText"> Contacto </RouterLink>
         </div>
         <div class="p-2">
           <RouterLink to="/carrito">
-            <btncoffee color="Primary" size="lg">0 <i class="bi bi-cart"></i></btncoffee
-          ></RouterLink>
+            <btncoffee color="Primary" size="lg">
+              {{ cantidad }} <i class="bi bi-cart" />
+            </btncoffee>
+          </RouterLink>
         </div>
       </nav>
     </header>
 
     <main>
-      <RouterView />
+      <RouterView @add="initCarrito" />
     </main>
 
     <footer class="mt-auto py-4 text-white">
