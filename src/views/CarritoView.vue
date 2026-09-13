@@ -44,7 +44,7 @@ const itemsCarrito = computed(() =>
 </script>
 <template>
   <div class="container py-5">
-    <h1 class="mb-5">Your Shopping Cart</h1>
+    <h1 class="mb-5">Carrito</h1>
     <div class="row">
       <div v-for="cafe in itemsCarrito" :key="cafe.id" class="col-lg-8">
         <cardCart
@@ -55,6 +55,7 @@ const itemsCarrito = computed(() =>
           :amount="cafe.amount"
         />
       </div>
+      <p v-if="itemsCarrito.length === 0">Todavía no has añadido nada al carrito!</p>
     </div>
   </div>
 </template>

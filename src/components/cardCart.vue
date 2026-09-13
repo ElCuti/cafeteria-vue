@@ -1,7 +1,7 @@
 <script setup>
 import { getCoffeePrice } from "@/constants/coffeePrices.js";
 
-const props = defineProps({
+defineProps({
   id: Number,
   image: String,
   title: String,
@@ -14,7 +14,7 @@ const props = defineProps({
     <div class="card-body">
       <div class="row cart-item mb-3">
         <div class="col-md-3">
-          <img :src="image" :alt="'Imagen de ' + title" class="img-fluid rounded" />
+          <img :src="image" :alt="'Imagen de ' + title" class="rounded" />
         </div>
         <div class="col-md-5">
           <h5 class="card-title">{{ title }}</h5>
@@ -41,4 +41,8 @@ const props = defineProps({
     </div>
   </div>
 </template>
-<style></style>
+<style scoped>
+.rounded {
+  max-width: 50%;
+}
+</style>
