@@ -11,7 +11,7 @@ const addCart = (Product) => {
     throw "¡ERROR!";
   }
   let carrito = getCart();
-  let pos = carrito.indexOf((ProductFind) => ProductFind.id === Product.id);
+  let pos = carrito.findIndex((ProductFind) => ProductFind.id === Product.id);
 
   if (pos === -1) {
     carrito.unshift({ id: Product.id, amount: Product.amount });
@@ -24,9 +24,9 @@ const addCart = (Product) => {
   localStorage.setItem("Productos", JSON.stringify(carrito));
 };
 
-const removeCart = (Product) => {
+const removeCart = (id) => {
   let carrito = getCart();
-  let pos = carrito.indexOf((ProductFind) => ProductFind.id === Product.id);
+  let pos = carrito.findIndex((item) => item.id === id);
   if (pos === -1) {
     throw "¡ERROR!";
   }

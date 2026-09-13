@@ -1,13 +1,21 @@
 <script setup>
+import { removeCart } from "@/api/cart";
 import { getCoffeePrice } from "@/constants/coffeePrices.js";
 
-defineProps({
+const emit = defineEmits(["change"]);
+
+const props = defineProps({
   id: Number,
   image: String,
   title: String,
   price: Number,
   amount: Number,
 });
+
+function eliminar() {
+  removeCart(props.id);
+  emit("change");
+}
 </script>
 <template>
   <div class="card mb-4">
@@ -33,7 +41,7 @@ defineProps({
         </div>
         <div class="col-md-2 text-end">
           <p class="fw-bold">{{ getCoffeePrice(id) }}€</p>
-          <button class="btn btn-sm btn-outline-danger">
+          <button class="btn btn-sm btn-outline-danger" @click="eliminar()">
             <i class="bi bi-trash"></i>
           </button>
         </div>

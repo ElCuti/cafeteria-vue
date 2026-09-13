@@ -53,6 +53,7 @@ const itemsCarrito = computed(() =>
           :image="cafe.image"
           :price="cafe.price"
           :amount="cafe.amount"
+          @change="initCarrito"
         />
       </div>
       <p v-if="itemsCarrito.length === 0">Todavía no has añadido nada al carrito!</p>
