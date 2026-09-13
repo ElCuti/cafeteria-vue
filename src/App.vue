@@ -20,8 +20,8 @@ const cantidad = computed(() => {
 const animando = ref(false);
 
 function onAdd() {
-  initCarrito(); 
-  animando.value = false; 
+  initCarrito();
+  animando.value = false;
   requestAnimationFrame(() => (animando.value = true));
 }
 </script>
@@ -95,6 +95,9 @@ function onAdd() {
 </template>
 
 <style>
+html {
+  scrollbar-gutter: stable;
+}
 footer {
   text-align: center;
   padding: 5px;
