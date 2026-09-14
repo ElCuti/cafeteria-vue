@@ -3,6 +3,9 @@ import { ref, onMounted, computed } from "vue";
 import { RouterLink, RouterView } from "vue-router";
 import btncoffee from "./components/btncoffee.vue";
 import { getCart } from "@/api/cart.js";
+import { provide } from "vue";
+
+provide("refrescarCarrito", initCarrito);
 
 const carrito = ref([]);
 onMounted(() => {

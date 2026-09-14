@@ -34,8 +34,35 @@ const removeCart = (id) => {
   localStorage.setItem("Productos", JSON.stringify(carrito));
 };
 
+const addProduct = (id, amount) => {
+  let carrito = getCart();
+  let pos = carrito.findIndex((item) => item.id === id);
+  if (pos === -1) {
+    throw "¡ERROR!";
+  }
+  carrito.splice(pos, 1);
+  carrito.unshift({ id: id, amount: amount + 1 });
+  localStorage.setItem("Productos", JSON.stringify(carrito));
+};
+
+const removeProduct = (id, amount) => {
+  let carrito = getCart();
+  let currentAmount = amount - 1;
+  let pos = carrito.findIndex((item) => item.id === id);
+  if (pos === -1) {
+    throw "¡ERROR!";
+  }
+  if (currentAmount > 0) {
+    carrito.splice(pos, 1);
+    carrito.unshift({ id: id, amount: currentAmount });
+    localStorage.setItem("Productos", JSON.stringify(carrito));
+  } else {
+    removeCart(id);
+  }
+};
+
 const deleteCart = () => {
   localStorage.setItem("Productos", JSON.stringify([]));
 };
 
-export { getCart, addCart, removeCart, deleteCart };
+export { getCart, addCart, removeCart, deleteCart, addProduct, removeProduct };
