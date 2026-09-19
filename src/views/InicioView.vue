@@ -10,14 +10,10 @@ import btncoffee from "../components/btncoffee.vue";
           <b>El mejor café de especialidad de la ciudad.</b>
         </h1>
         <p>
-          Tostamos nuestros granos a diario para ofrecerte una experiencia única
-          en cada taza. Un ambiente relajado para disfrutar del ritual del café
+          Tostamos nuestros granos a diario para ofrecerte una experiencia única en cada taza. Un
+          ambiente relajado para disfrutar del ritual del café
         </p>
-        <btncoffee
-          path="/carta"
-          color="Primary"
-          size="lg"
-        >
+        <btncoffee path="/carta" color="Primary" size="lg">
           Ver nuestra carta <i class="bi bi-arrow-down" />
         </btncoffee>
       </div>
@@ -27,7 +23,7 @@ import btncoffee from "../components/btncoffee.vue";
             src="../../public/fotoInicio.jpg"
             class="object-fit-cover rounded"
             alt="Imagen café"
-          >
+          />
         </div>
         <div class="tarjeta card mb-3 rounded-4">
           <div class="row g-0">
@@ -36,9 +32,7 @@ import btncoffee from "../components/btncoffee.vue";
             </div>
             <div class="col-8">
               <div class="card-body">
-                <h5 class="card-title textoTitTarjeta">
-                  TUESTE
-                </h5>
+                <h5 class="card-title textoTitTarjeta">TUESTE</h5>
                 <p class="card-text colorCafe">
                   <b>Diario & Artesanal</b>
                 </p>

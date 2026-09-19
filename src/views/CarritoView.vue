@@ -1,6 +1,6 @@
 <script setup>
 import { ref, onMounted, onBeforeMount, computed } from "vue";
-import { getCart, deleteCart,  } from "@/api/cart.js";
+import { getCart, deleteCart } from "@/api/cart.js";
 import cardCart from "@/components/cardCart.vue";
 import { coffeGet } from "@/api/coffee";
 import { inject } from "vue";

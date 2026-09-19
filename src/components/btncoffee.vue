@@ -41,11 +41,7 @@ function execute(e) {
 }
 </script>
 <template>
-  <button
-    class="btn"
-    :class="color + ' ' + size"
-    @click="execute"
-  >
+  <button class="btn" :class="color + ' ' + size" @click="execute">
     <slot />
   </button>
 </template>

@@ -11,9 +11,7 @@ const emailEnviado = ref("");
 
 const formularioEnviado = ref(false);
 const errorFormulario = ref(false);
-const colorTextForm = computed(() =>
-  !errorFormulario.value ? "green" : "red",
-);
+const colorTextForm = computed(() => (!errorFormulario.value ? "green" : "red"));
 
 const enviarFormulario = () => {
   if (nombre.value !== "" && email.value !== "" && mensaje.value !== "") {
@@ -41,24 +39,18 @@ const enviarFormulario = () => {
           <b>Hablemos</b>
         </h1>
         <p>
-          ¿Tienes alguna pregunta sobre nuestros orígenes, quieres reservar un
-          espacio para un evento o simplemente saludarnos? Escríbenos.
+          ¿Tienes alguna pregunta sobre nuestros orígenes, quieres reservar un espacio para un
+          evento o simplemente saludarnos? Escríbenos.
         </p>
         <div>
-          <p
-            v-if="formularioEnviado"
-            class="textForm"
-          >
-            ¡Formulario enviado! Muchas gracias {{ nombreEnviado }} por enviar
-            su formulario, le comunicaremos nuestra respuesta a
+          <p v-if="formularioEnviado" class="textForm">
+            ¡Formulario enviado! Muchas gracias {{ nombreEnviado }} por enviar su formulario, le
+            comunicaremos nuestra respuesta a
             {{ emailEnviado }}
           </p>
-          <p
-            v-else-if="errorFormulario"
-            class="textForm"
-          >
-            ¡Error en el formulario! Has dejado un campo sin rellenar, procure
-            rellenar todos los parametros
+          <p v-else-if="errorFormulario" class="textForm">
+            ¡Error en el formulario! Has dejado un campo sin rellenar, procure rellenar todos los
+            parametros
           </p>
         </div>
       </div>
@@ -66,46 +58,18 @@ const enviarFormulario = () => {
         <div class="card">
           <div class="card-body">
             <div class="mb-3">
-              <label
-                for="NombreInput"
-                class="form-label"
-              >Nombre</label>
-              <input
-                id="NombreInput"
-                v-model="nombre"
-                type="text"
-                class="form-control"
-              >
+              <label for="NombreInput" class="form-label">Nombre</label>
+              <input id="NombreInput" v-model="nombre" type="text" class="form-control" />
             </div>
             <div class="mb-3">
-              <label
-                for="EmailInput"
-                class="form-label"
-              >Email</label>
-              <input
-                id="EmailInput"
-                v-model="email"
-                type="email"
-                class="form-control"
-              >
+              <label for="EmailInput" class="form-label">Email</label>
+              <input id="EmailInput" v-model="email" type="email" class="form-control" />
             </div>
             <div class="mb-3">
-              <label
-                for="MensajeInput"
-                class="form-label"
-              >Mensaje</label>
-              <textarea
-                id="MensajeInput"
-                v-model="mensaje"
-                class="form-control"
-                rows="6"
-              />
+              <label for="MensajeInput" class="form-label">Mensaje</label>
+              <textarea id="MensajeInput" v-model="mensaje" class="form-control" rows="6" />
             </div>
-            <btncoffee
-              color="Primary"
-              size="lg"
-              @click="enviarFormulario"
-            >
+            <btncoffee color="Primary" size="lg" @click="enviarFormulario">
               Enviar <i class="bi bi-arrow-down" />
             </btncoffee>
           </div>
