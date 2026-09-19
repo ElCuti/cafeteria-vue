@@ -26,11 +26,11 @@ function actualizar() {
 }
 
 function agregarProducto() {
-  addProduct(props.id, props.amount);
+  addProduct(props.id);
   actualizar();
 }
 function eliminarProducto() {
-  removeProduct(props.id, props.amount);
+  removeProduct(props.id);
   actualizar();
 }
 </script>

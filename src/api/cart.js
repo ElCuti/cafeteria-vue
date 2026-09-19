@@ -16,10 +16,7 @@ const addCart = (Product) => {
   if (pos === -1) {
     carrito.unshift({ id: Product.id, amount: Product.amount });
   } else {
-    let existente = carrito[pos];
-    let cantidad = Product.amount + existente.amount;
-    carrito.splice(pos, 1);
-    carrito.unshift({ id: Product.id, amount: cantidad });
+    carrito[pos].amount += Product.amount;
   }
   localStorage.setItem("Productos", JSON.stringify(carrito));
 };
@@ -34,27 +31,24 @@ const removeCart = (id) => {
   localStorage.setItem("Productos", JSON.stringify(carrito));
 };
 
-const addProduct = (id, amount) => {
+const addProduct = (id) => {
   let carrito = getCart();
   let pos = carrito.findIndex((item) => item.id === id);
   if (pos === -1) {
     throw "¡ERROR!";
   }
-  carrito.splice(pos, 1);
-  carrito.unshift({ id: id, amount: amount + 1 });
+  carrito[pos].amount = carrito[pos].amount + 1;
   localStorage.setItem("Productos", JSON.stringify(carrito));
 };
 
-const removeProduct = (id, amount) => {
+const removeProduct = (id) => {
   let carrito = getCart();
-  let currentAmount = amount - 1;
   let pos = carrito.findIndex((item) => item.id === id);
   if (pos === -1) {
     throw "¡ERROR!";
   }
-  if (currentAmount > 0) {
-    carrito.splice(pos, 1);
-    carrito.unshift({ id: id, amount: currentAmount });
+  if (carrito[pos].amount > 1) {
+    carrito[pos].amount -= 1;
     localStorage.setItem("Productos", JSON.stringify(carrito));
   } else {
     removeCart(id);
