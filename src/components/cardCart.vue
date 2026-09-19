@@ -48,6 +48,7 @@ function eliminarProducto() {
         </div>
         <div class="col-md-5">
           <h5 class="card-title">{{ title }}</h5>
+          <p>Precio por unidad: {{ getCoffeePrice(id) }}€</p>
         </div>
         <div class="col-md-2">
           <div class="input-group">
@@ -74,7 +75,7 @@ function eliminarProducto() {
           </div>
         </div>
         <div class="col-md-2 text-end">
-          <p class="fw-bold">{{ getCoffeePrice(id) }}€/pax</p>
+          <p class="fw-bold">{{ getCoffeePrice(id) * amount }}€</p>
           <button class="btn btn-sm btn-outline-danger" @click="eliminar()">
             <i class="bi bi-trash"></i>
           </button>

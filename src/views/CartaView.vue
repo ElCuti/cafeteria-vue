@@ -10,7 +10,7 @@ onBeforeMount(async () => {
 });
 
 const cartaLimpia = computed(() => {
-  const testCafe = [55, 56, 57];
+  const testCafe = [55, 56, 57, "number", "123456"];
   return carta.value.filter((cafe) => !testCafe.includes(cafe.id));
 });
 </script>

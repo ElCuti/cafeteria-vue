@@ -1,7 +1,6 @@
 <script setup>
 import { getIngredientColor } from "@/constants/ingredientColors";
 import { getCoffeePrice } from "@/constants/coffeePrices.js";
-import btncoffee from "../components/btncoffee.vue";
 import { ref } from "vue";
 import { addCart } from "@/api/cart.js";
 
@@ -79,19 +78,17 @@ function add() {
       <p class="card-text text-muted mb-4">
         {{ description }}
       </p>
-      <div class="d-flex justify-content-end mt-auto">
-        <btncoffee class="rounded-pill" path="" color="Primary" size="lg" @click="disminuir">
-          <i class="bi bi-dash-lg" />
-        </btncoffee>
-        <btncoffee class="rounded-pill" path="" color="Primary" size="lg">
-          {{ amount }}
-        </btncoffee>
-        <btncoffee class="rounded-pill" path="" color="Primary" size="lg" @click="aumentar">
-          <i class="bi bi-plus-lg" />
-        </btncoffee>
-        <btncoffee class="px-5 py-2 rounded-pill" path="" color="Primary" size="lg" @click="add">
-          <i class="bi bi-basket" />
-        </btncoffee>
+      <div class="d-flex add-bar mt-auto">
+        <div class="d-flex align-items-center gap-3 stepper">
+          <button type="button" class="btn-step" aria-label="Quitar uno" @click="disminuir">
+            −
+          </button>
+          <span class="amount">{{ amount }}</span>
+          <button type="button" class="btn-step" aria-label="Añadir uno" @click="aumentar">
+            +
+          </button>
+          <button type="button" class="btn-add p-3" @click="add">Añadir al Carrito</button>
+        </div>
       </div>
     </div>
   </div>
@@ -100,5 +97,29 @@ function add() {
 <style scoped>
 .card-body {
   background-color: #f1e9d7;
+}
+.add-bar {
+  background: #f3f1eb;
+  border-radius: 200px;
+  padding: 4px;
+  width: fit-content;
+}
+.btn-step {
+  border: 0;
+  background: transparent;
+  color: #7e4a0f;
+  font-size: 1.25rem;
+  line-height: 1;
+}
+.amount {
+  text-align: center;
+  font-size: 1.25rem;
+  color: #8d4e21;
+}
+.btn-add {
+  border: 0;
+  background: #e07b39;
+  color: #fff;
+  border-radius: 200px;
 }
 </style>
