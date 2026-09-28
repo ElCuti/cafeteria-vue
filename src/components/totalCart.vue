@@ -1,4 +1,5 @@
 <script setup>
+import btncoffee from "./btncoffee.vue";
 const props = defineProps({
   total: Number,
 });
@@ -21,9 +22,7 @@ const props = defineProps({
         <strong>Total</strong>
         <strong>{{ props.total }}€</strong>
       </div>
-      <button class="btn btn-primary w-100">Proceder al pago</button>
+      <btncoffee color="Primary" size="md">Proceder al pago</btncoffee>
     </div>
   </div>
 </template>
-
-<style></style>

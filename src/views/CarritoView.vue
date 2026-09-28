@@ -67,20 +67,25 @@ const totalPrice = computed(() => {
         Vaciar carrito
       </button>
     </div>
-    <div class="row">
-      <div v-for="cafe in itemsCarrito" :key="cafe.id" class="col-lg-8">
-        <cardCart
-          :id="cafe.id"
-          :title="cafe.title"
-          :image="cafe.image"
-          :price="cafe.price"
-          :amount="cafe.amount"
-          @change="initCarrito"
-        />
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8">
+          <p v-if="itemsCarrito.length === 0">Todavía no has añadido nada al carrito!</p>
+          <cardCart
+            v-for="cafe in itemsCarrito"
+            :id="cafe.id"
+            :key="cafe.id"
+            :title="cafe.title"
+            :image="cafe.image"
+            :price="cafe.price"
+            :amount="cafe.amount"
+            @change="initCarrito"
+          />
+        </div>
+        <div class="col-lg-4">
+          <totalCart :total="totalPrice" />
+        </div>
       </div>
-      <totalCart :total="totalPrice" />
-      <p v-if="itemsCarrito.length === 0">Todavía no has añadido nada al carrito!</p>
     </div>
   </div>
 </template>
-<style></style>
