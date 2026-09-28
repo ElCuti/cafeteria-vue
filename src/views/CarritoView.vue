@@ -4,9 +4,10 @@ import { getCart, deleteCart } from "@/api/cart.js";
 import cardCart from "@/components/cardCart.vue";
 import { coffeGet } from "@/api/coffee";
 import { inject } from "vue";
+import totalCart from "@/components/totalCart.vue";
+import { getCoffeePrice } from "@/constants/coffeePrices";
 
 const refrescarCarrito = inject("refrescarCarrito");
-
 const carta = ref([]);
 
 onBeforeMount(async () => {
@@ -50,6 +51,13 @@ const itemsCarrito = computed(() =>
     return productoCarrito;
   })
 );
+const totalPrice = computed(() => {
+  let precioTotal = 0;
+  for (const producto of carrito.value) {
+    precioTotal += getCoffeePrice(producto.id) * producto.amount;
+  }
+  return precioTotal;
+});
 </script>
 <template>
   <div class="container py-5">
@@ -70,6 +78,7 @@ const itemsCarrito = computed(() =>
           @change="initCarrito"
         />
       </div>
+      <totalCart :total="totalPrice" />
       <p v-if="itemsCarrito.length === 0">Todavía no has añadido nada al carrito!</p>
     </div>
   </div>
